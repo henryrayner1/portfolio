@@ -1,0 +1,59 @@
+.job {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+  padding-bottom: 64px;
+}
+
+.job + .job {
+  border-top: 2px solid var(--rule);
+  padding-top: 72px;
+}
+
+.company {
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+
+.subheading {
+  font-size: 26px;
+  margin: 32px 0 4px;
+}
+
+.technologies {
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.label {
+  color: var(--text);
+}
+
+.logo {
+  aspect-ratio: 7 / 6;
+  margin-right: 20px;
+}
+
+@media (max-width: 800px) {
+  .job {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-bottom: 48px;
+  }
+
+  .job + .job {
+    padding-top: 48px;
+  }
+
+  .company {
+    font-size: 32px;
+  }
+
+  .logo {
+    max-width: 340px;
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,12 @@
+.box {
+  background: var(--placeholder);
+  width: 100%;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.rounded {
+  border-radius: 32px;
+}

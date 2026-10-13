@@ -1,0 +1,32 @@
+.school {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.year {
+  font-size: 0.9em;
+}
+
+.course {
+  margin-top: 20px;
+}
+
+.course + .course {
+  margin-top: 28px;
+}
+
+.courseName {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.courseCode {
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.photo {
+  aspect-ratio: 1;
+  margin-top: 24px;
+}

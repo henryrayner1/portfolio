@@ -1,0 +1,15 @@
+/* A window onto one section at a time: users can't scroll it, only navigation can. */
+.panel {
+  position: relative;
+  max-width: var(--panel-max);
+  height: calc(100dvh - var(--header-h));
+  margin: var(--header-h) auto 0;
+  background: var(--bg-panel);
+  overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .panel {
+    max-width: 78vw;
+  }
+}

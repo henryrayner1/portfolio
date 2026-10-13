@@ -1,0 +1,56 @@
+/* Two-column text + image row used by About, Education and Experience. */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.row > * {
+  min-width: 0;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.subheading {
+  font-size: 26px;
+  margin: 40px 0 12px;
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 40px;
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.bullets li::before {
+  content: '✱';
+  position: absolute;
+  left: 12px;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+@media (max-width: 800px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .subtitle,
+  .bullets li {
+    font-size: 17px;
+  }
+}

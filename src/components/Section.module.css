@@ -1,0 +1,57 @@
+/* Each section fills the panel and scrolls independently. */
+.section {
+  position: relative;
+  height: 100%;
+}
+
+.scroller {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 40px 56px 96px;
+}
+
+/* Fades the bottom edge while there's more to scroll, as a cue on devices
+   whose scrollbars hide when idle. To limit it to touch devices, wrap
+   .fadeVisible in @media (hover: none). */
+.fade {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 72px;
+  background: linear-gradient(to bottom, transparent, var(--bg-panel));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.fadeVisible {
+  opacity: 1;
+}
+
+.title,
+.centeredTitle {
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.15;
+  margin-bottom: 64px;
+}
+
+.title {
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 4px;
+}
+
+.centeredTitle {
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .scroller {
+    padding: 32px 20px 64px;
+  }
+
+  .title,
+  .centeredTitle {
+    margin-bottom: 40px;
+  }
+}

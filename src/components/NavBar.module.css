@@ -1,0 +1,45 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: min(1200px, calc(100% - 32px));
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: var(--text-muted);
+}
+
+.edge {
+  flex: 0 0 36px;
+}
+
+.link {
+  font-size: 18px;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.link:hover,
+.link[aria-current] {
+  color: var(--text);
+}
+
+@media (max-width: 800px) {
+  .nav {
+    gap: 12px;
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .link {
+    font-size: 13px;
+  }
+}

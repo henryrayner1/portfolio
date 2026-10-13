@@ -1,0 +1,68 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+  padding: 0 40px;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.reversed {
+  grid-template-columns: 1fr 320px;
+}
+
+.reversed .image {
+  order: 2;
+}
+
+.image {
+  aspect-ratio: 9 / 8;
+}
+
+.body {
+  padding-top: 12px;
+}
+
+/* Heading and spacing match the company and school names in Experience and Education. */
+.name {
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+
+.paragraph + .paragraph {
+  margin-top: 16px;
+}
+
+.name a {
+  color: inherit;
+}
+
+@media (max-width: 800px) {
+  .list {
+    gap: 72px;
+    padding: 0;
+  }
+
+  .project,
+  .reversed {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .reversed .image {
+    order: 0;
+  }
+
+  .image {
+    max-width: 360px;
+  }
+
+  .name {
+    font-size: 32px;
+  }
+}
