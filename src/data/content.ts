@@ -3,8 +3,12 @@ import northropGrummanLogo from '../assets/northrop-grumman-logo.png'
 import realityRanking from '../assets/reality-ranking.png'
 import homeVideos from '../assets/home-videos.png'
 
-// All site copy lives here. Add an `image` path (e.g. '/images/brown.jpg' in public/)
-// to replace any grey placeholder box.
+// All site copy lives here. Add an `image` path (e.g. publicUrl('images/brown.jpg')
+// for a file in public/) to replace any grey placeholder box.
+
+// Files in public/ are served under the site's base path (/portfolio/ on
+// GitHub Pages), so build their URLs from it rather than from the root.
+const publicUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
 export type SectionId = 'about' | 'education' | 'experience' | 'projects' | 'resume'
 
@@ -59,15 +63,14 @@ export const profile = {
   name: 'Henry Rayner',
   taglines: ['Technical Professional', '2+ Years of Software Engineering Experience'],
   // Shown under the taglines on the About page; each entry is its own line.
-  // Shown under the taglines on the About page; each entry is its own line.
   blurb: ['Welcome to my digital portfolio.', 'I am a problem-solver at heart who thrives on tackling complex challenges.', 'Take a look at my experience and projects to learn more about my work.'],
   // Drop your signature at public/signature.png; it is hidden until the file exists.
-  signature: '/signature.png',
+  signature: publicUrl('signature.png'),
   image: undefined as string | undefined,
   // PDFs live in public/; the first one is shown by default.
   resumes: [
-    { label: 'Engineering', file: '/resume-engineering.pdf' },
-    { label: 'Product', file: '/resume-product.pdf' },
+    { label: 'Engineering', file: publicUrl('resume-engineering.pdf') },
+    { label: 'Product', file: publicUrl('resume-product.pdf') },
   ] as ResumeVersion[],
 }
 
