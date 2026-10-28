@@ -1,6 +1,7 @@
 import { About } from './components/About'
 import { Education } from './components/Education'
 import { Experience } from './components/Experience'
+import { GlitterBackground } from './components/GlitterBackground'
 import { Header } from './components/Header'
 import { Projects } from './components/Projects'
 import { Resume } from './components/Resume'
@@ -15,6 +16,7 @@ export default function App() {
 
   return (
     <>
+      <GlitterBackground />
       <Header active={active} onNavigate={navigate} />
       <main ref={panelRef} className={styles.panel}>
         <About />
