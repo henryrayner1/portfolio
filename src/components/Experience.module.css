@@ -1,8 +1,4 @@
 .job {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 48px;
-  align-items: start;
   padding-bottom: 64px;
 }
 
@@ -11,36 +7,54 @@
   padding-top: 72px;
 }
 
+/* Logo beside the company details, so the bullets below can use the full width. */
+.header {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.logo {
+  aspect-ratio: 7 / 6;
+}
+
 .company {
   font-size: 40px;
   margin-bottom: 4px;
 }
 
-.subheading {
-  font-size: 26px;
-  margin: 32px 0 4px;
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.technologies {
-  margin-top: 20px;
+.tags li {
+  padding: 4px 14px;
+  border: 1.5px solid var(--rule);
+  border-radius: 999px;
   color: var(--text-muted);
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
-.label {
-  color: var(--text);
+/* Bullets flow into two columns on wide screens. */
+.bullets {
+  columns: 2;
+  column-gap: 48px;
 }
 
-.logo {
-  aspect-ratio: 7 / 6;
-  margin-right: 20px;
+.bullets li {
+  break-inside: avoid;
+  margin-bottom: 14px;
 }
 
 @media (max-width: 800px) {
   .job {
-    grid-template-columns: 1fr;
-    gap: 24px;
     padding-bottom: 48px;
   }
 
@@ -48,12 +62,24 @@
     padding-top: 48px;
   }
 
+  .header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .logo {
+    max-width: 260px;
+  }
+
   .company {
     font-size: 32px;
   }
 
-  .logo {
-    max-width: 340px;
-    margin-right: 0;
+  .tags li {
+    font-size: 14px;
+  }
+
+  .bullets {
+    columns: 1;
   }
 }

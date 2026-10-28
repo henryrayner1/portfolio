@@ -13,33 +13,31 @@ export function Education() {
 
   return (
     <Section id="education" title="Education">
-      <div className={shared.row}>
-        <div>
-          <h3 className={styles.school}>{name}</h3>
-          <p className={shared.subtitle}>
-            {degree}, <span className={styles.year}>{year}</span>
-          </p>
-
-          <h4 className={shared.subheading}>Relevant Coursework:</h4>
-          {courses.map((course) => (
-            <div key={course.code} className={styles.course}>
-              <p className={styles.courseName}>
-                <span className={styles.courseCode}>{course.code}</span> {course.name}
-              </p>
-              <ul className={shared.bullets}>
-                <li>{course.description}</li>
-              </ul>
-            </div>
-          ))}
-        </div>
+      <div className={styles.intro}>
         <DotLogo
           src={brownLogo}
           label={`${name} crest drawn in dots`}
           dotsAcross={64}
           tint={WARM_WHITE}
-          className={styles.photo}
+          className={styles.crest}
         />
+        <div>
+          <h3 className={styles.school}>{name}</h3>
+          <p className={shared.subtitle}>{degree}</p>
+          <p className={shared.subtitle}>Class of {year}</p>
+        </div>
       </div>
+
+      <h4 className={shared.subheading}>Relevant Coursework:</h4>
+      <ul className={styles.courses}>
+        {courses.map((course) => (
+          <li key={course.code} className={styles.course}>
+            <span className={styles.courseCode}>{course.code}</span>
+            <h5 className={styles.courseName}>{course.name}</h5>
+            <p className={styles.courseDescription}>{course.description}</p>
+          </li>
+        ))}
+      </ul>
     </Section>
   )
 }
