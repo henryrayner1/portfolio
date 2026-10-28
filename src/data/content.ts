@@ -16,7 +16,7 @@ export const sections: { id: SectionId; label: string }[] = [
   { id: 'about', label: 'About' },
   { id: 'education', label: 'Education' },
   { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'projects', label: 'Projects & Certs' },
   { id: 'resume', label: 'Resume' },
 ]
 
@@ -49,6 +49,19 @@ export interface Job {
 export interface ResumeVersion {
   label: string
   file: string
+}
+
+export interface Certification {
+  name: string
+  /** Short mark shown in the badge circle until a `badge` image is added. */
+  short: string
+  issuer: string
+  /** e.g. 'Mar 2024'; omitted from the card when blank. */
+  earned?: string
+  /** Official badge image, e.g. downloaded from Credly. */
+  badge?: string
+  /** Verification link, e.g. a Credly or Scrum Alliance profile. */
+  link?: string
 }
 
 export interface Project {
@@ -189,5 +202,18 @@ export const projects: Project[] = [
       'This application stores tags for each video in the hard drive and allows the user to filter the videos by tags to get the relevant videos. Example: An anniversary is coming up, and I want to pull up all videos of Aunt Becky and Uncle Jesse. I simply select (or search) their tags, and I am able to easily click on the relevant videos.',
     ],
     image: homeVideos,
+  },
+]
+
+export const certifications: Certification[] = [
+  {
+    name: 'AWS Certified Solutions Architect – Associate',
+    short: 'AWS',
+    issuer: 'Amazon Web Services',
+  },
+  {
+    name: 'Certified Scrum Product Owner (CSPO)',
+    short: 'CSPO',
+    issuer: 'Scrum Alliance',
   },
 ]
