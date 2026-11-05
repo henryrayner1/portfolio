@@ -77,10 +77,9 @@
   color: inherit;
 }
 
-/* Stays in view while the projects scroll past. */
+/* Scrolls with the projects: with more than two certifications it's taller
+   than the section, and a sticky sidebar hid the last cards until the end. */
 .sidebar {
-  position: sticky;
-  top: 0;
   padding-left: 32px;
   border-left: 2px solid var(--rule);
 }
@@ -149,7 +148,6 @@ img.badge {
   }
 
   .sidebar {
-    position: static;
     padding: 32px 0 0;
     border-left: 0;
     border-top: 2px solid var(--rule);
