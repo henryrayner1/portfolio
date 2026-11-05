@@ -40,7 +40,7 @@ export function Section({ id, title, centeredTitle, className = '', children }: 
 
   return (
     <section id={id} className={styles.section}>
-      <div ref={scrollRef} className={`${styles.scroller} ${className}`}>
+      <div ref={scrollRef} className={`${styles.scroller} ${className}`} data-section-scroller>
         {title && (
           <h2 className={centeredTitle ? styles.centeredTitle : styles.title}>{title}</h2>
         )}

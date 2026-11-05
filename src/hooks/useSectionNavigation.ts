@@ -13,6 +13,10 @@ export function useSectionNavigation<T extends string>(ids: readonly T[]) {
     return ids.includes(hash) ? hash : ids[0]
   })
 
+  // Read inside navigate without re-creating it on every section change.
+  const activeRef = useRef(active)
+  activeRef.current = active
+
   const scrollToSection = useCallback((id: T, behavior: ScrollBehavior) => {
     const section = document.getElementById(id)
     if (section) panelRef.current?.scrollTo({ top: section.offsetTop, behavior })
@@ -20,9 +24,19 @@ export function useSectionNavigation<T extends string>(ids: readonly T[]) {
 
   const navigate = useCallback(
     (id: T) => {
+      const behavior = prefersReducedMotion() ? 'auto' : 'smooth'
+      // Every visit starts at the top of the section. Arriving from elsewhere,
+      // the section is off screen, so it can jump there unseen; choosing the
+      // section you're already on scrolls it back up instead.
+      const scroller = document
+        .getElementById(id)
+        ?.querySelector<HTMLElement>('[data-section-scroller]')
+      if (id === activeRef.current) scroller?.scrollTo({ top: 0, behavior })
+      else if (scroller) scroller.scrollTop = 0
+
       setActive(id)
       history.replaceState(null, '', `#${id}`)
-      scrollToSection(id, prefersReducedMotion() ? 'auto' : 'smooth')
+      scrollToSection(id, behavior)
     },
     [scrollToSection],
   )

@@ -17,7 +17,7 @@
   background: none;
   color: var(--text-muted);
   font: inherit;
-  font-size: 17px;
+  font-size: 1.0625rem;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
@@ -41,7 +41,7 @@
   border: 1px solid var(--text-muted);
   color: var(--text);
   text-decoration: none;
-  font-size: 17px;
+  font-size: 1.0625rem;
   transition: background 0.2s;
 }
 

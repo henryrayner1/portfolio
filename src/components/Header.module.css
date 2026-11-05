@@ -7,8 +7,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 52px;
-  gap: 55px;
+  /* Spacing shrinks with the header on shorter screens (see --header-h). */
+  /* The gap between name and nav shrinks least: the signature is centred on
+     the name and needs about half its height below it to clear the nav. */
+  padding-bottom: max(12px, 52px - var(--shortfall) * 0.15);
+  gap: max(36px, 55px - var(--shortfall) * 0.05);
 }
 
 .brand {
@@ -21,7 +24,7 @@
 
 .name {
   position: relative;
-  font-size: 18px;
+  font-size: max(16px, 18px - var(--shortfall) * 0.007);
   letter-spacing: 0.4em;
   margin-right: -0.45em; /* balance trailing letter-spacing */
 }
@@ -30,7 +33,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 115px;
+  height: max(84px, 115px - var(--shortfall) * 0.08);
   aspect-ratio: 1254 / 698; /* signature.png dimensions */
   background: var(--text-muted);
   mask-size: contain;

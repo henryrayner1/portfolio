@@ -16,7 +16,7 @@
 }
 
 .link {
-  font-size: 18px;
+  font-size: max(15px, 18px - var(--shortfall) * 0.01);
   color: var(--text-muted);
   text-decoration: none;
   white-space: nowrap;

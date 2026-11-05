@@ -12,7 +12,11 @@
   --font-heading: 'Lora', Georgia, serif;
   --font-body: 'Varela Round', system-ui, sans-serif;
 
-  --header-h: 210px;
+  /* How much shorter the window is than a 1080px-tall monitor (0–400px). The
+     header and its contents shrink in proportion, so a monitor gets the full
+     size and a laptop screen a compact one. */
+  --shortfall: clamp(0px, 1080px - 100dvh, 400px);
+  --header-h: max(120px, 210px - var(--shortfall) * 0.27);
   --panel-max: 1100px;
 }
 
@@ -20,6 +24,12 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+/* Content text is sized in rem, so on shorter laptop screens it shrinks with
+   the header (about 15% at 790px tall). The header and nav size themselves. */
+html {
+  font-size: max(13px, 16px - var(--shortfall) * 0.008);
 }
 
 html,
@@ -102,5 +112,7 @@ img {
 @media (max-width: 800px) {
   :root {
     --header-h: 110px;
+    /* Phones keep their own sizes whatever the screen height. */
+    --shortfall: 0px;
   }
 }

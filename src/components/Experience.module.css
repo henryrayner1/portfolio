@@ -20,7 +20,7 @@
 }
 
 .company {
-  font-size: 40px;
+  font-size: 2.5rem;
   margin-bottom: 4px;
 }
 
@@ -38,7 +38,7 @@
   border: 1.5px solid var(--rule);
   border-radius: 999px;
   color: var(--text-muted);
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.5;
 }
 
@@ -72,11 +72,11 @@
   }
 
   .company {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .tags li {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .bullets {
