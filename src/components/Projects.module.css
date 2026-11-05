@@ -34,10 +34,15 @@
 
 .image {
   aspect-ratio: 9 / 8;
+  object-position: center;
+  /* Top edge level with the project name's letters, not its line box. */
+  margin-top: 8px;
+  border: 2px solid var(--rule);
 }
 
-.body {
-  padding-top: 12px;
+/* Screenshots have text near their corners, so round them less than photos. */
+.project .image {
+  border-radius: 16px;
 }
 
 .name {
@@ -48,6 +53,23 @@
 
 .paragraph + .paragraph {
   margin-top: 16px;
+}
+
+/* Matches the Resume tab's buttons. */
+.learnMore {
+  margin-top: 28px;
+  padding: 10px 22px;
+  border: 1px solid var(--text-muted);
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.learnMore:hover {
+  background: var(--bg-outer);
 }
 
 .name a,

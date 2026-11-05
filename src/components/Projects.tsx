@@ -1,17 +1,21 @@
-import { certifications, projects } from '../data/content'
+import { useState } from 'react'
+import { certifications, projects, type Project, type ProjectDetails } from '../data/content'
 import { ImagePlaceholder } from './ImagePlaceholder'
+import { ProjectDialog } from './ProjectDialog'
 import { Section } from './Section'
 import shared from './shared.module.css'
 import styles from './Projects.module.css'
 
 export function Projects() {
+  const [open, setOpen] = useState<(Project & { details: ProjectDetails }) | null>(null)
+
   return (
     <Section id="projects" title="Projects & Certifications">
       <div className={styles.layout}>
         <div>
           <h3 className={styles.columnTitle}>Personal Projects</h3>
           <div className={styles.list}>
-            {projects.map((project, i) => (
+            {projects.map(({ details, ...project }, i) => (
               <article
                 key={project.name}
                 className={`${styles.project} ${i % 2 === 1 ? styles.reversed : ''}`}
@@ -34,6 +38,17 @@ export function Projects() {
                       {paragraph}
                     </p>
                   ))}
+
+                  {details && (
+                    <button
+                      type="button"
+                      className={styles.learnMore}
+                      aria-haspopup="dialog"
+                      onClick={() => setOpen({ ...project, details })}
+                    >
+                      Learn more <span aria-hidden>→</span>
+                    </button>
+                  )}
                 </div>
               </article>
             ))}
@@ -64,6 +79,8 @@ export function Projects() {
           </ul>
         </aside>
       </div>
+
+      {open && <ProjectDialog project={open} onClose={() => setOpen(null)} />}
     </Section>
   )
 }

@@ -1,0 +1,284 @@
+.dialog {
+  width: min(1040px, calc(100vw - 48px));
+  max-width: none;
+  max-height: calc(100dvh - 48px);
+  padding: 0;
+  border: 2px solid var(--rule);
+  border-radius: 24px;
+  background: var(--bg-panel);
+  color: var(--text);
+  box-shadow: 0 24px 80px rgba(90, 50, 30, 0.25);
+}
+
+.dialog::backdrop {
+  background: rgba(60, 35, 20, 0.35);
+  backdrop-filter: blur(3px);
+}
+
+.dialog[open] {
+  animation: rise 0.25s ease-out;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open] {
+    animation: none;
+  }
+}
+
+.content {
+  padding: 40px 48px 48px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.name {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.stack {
+  color: var(--text-muted);
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.link {
+  padding: 8px 18px;
+  border: 1px solid var(--text-muted);
+  color: var(--text);
+  font-size: 15px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.link:hover {
+  background: var(--bg-outer);
+}
+
+.close {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--text-muted);
+  border-radius: 50%;
+  background: none;
+  color: var(--text);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.close:hover {
+  background: var(--bg-outer);
+}
+
+/* Screenshots */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shot {
+  margin: 0;
+}
+
+.shotLink {
+  display: block;
+}
+
+.shotImage {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid var(--rule);
+  border-radius: 16px;
+  background: var(--placeholder);
+}
+
+.shotCaption {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.thumb {
+  width: 120px;
+  padding: 0;
+  border: 2px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+
+.thumb:hover {
+  opacity: 0.85;
+}
+
+.thumb[aria-pressed='true'] {
+  opacity: 1;
+  border-color: var(--text-muted);
+}
+
+/* Sections */
+.block {
+  margin-top: 44px;
+}
+
+.heading {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.paragraph {
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.paragraph + .paragraph {
+  margin-top: 14px;
+}
+
+.diagrams {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hosting {
+  margin: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.hostingRow {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hostingRow dt {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.hostingRow dd {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* Cards share the look of the certification cards. */
+.highlight {
+  padding: 20px 22px;
+  border: 2px solid var(--rule);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--bg-panel), white 30%);
+}
+
+.highlightTitle {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.highlight p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .dialog {
+    width: 100vw;
+    max-height: 100dvh;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .content {
+    padding: 24px 16px 32px;
+  }
+
+  .name {
+    font-size: 28px;
+  }
+
+  .stack {
+    font-size: 16px;
+  }
+
+  .thumb {
+    flex: 1 1 0;
+    width: auto;
+  }
+
+  .block {
+    margin-top: 36px;
+  }
+
+  .heading {
+    font-size: 22px;
+  }
+
+  .paragraph {
+    font-size: 16px;
+  }
+
+  .hostingRow {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
