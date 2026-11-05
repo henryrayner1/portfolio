@@ -619,4 +619,9 @@ export const certifications: Certification[] = [
     short: 'CSPO',
     issuer: 'Scrum Alliance',
   },
+  {
+    name: 'Google Data Analytics Professional Certificate',
+    short: 'GDA',
+    issuer: 'Google',
+  },
 ]
