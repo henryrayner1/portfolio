@@ -26,9 +26,12 @@ export function Resume() {
           Download {current.label} PDF
         </a>
       </div>
+      {/* PDF open parameters: view=FitH opens the page zoomed to the frame's width,
+          navpanes=0 hides Chrome's thumbnail sidebar so the page gets the full width.
+          Browsers that don't support them just ignore them. */}
       <object
         key={current.file}
-        data={current.file}
+        data={`${current.file}#view=FitH&navpanes=0`}
         type="application/pdf"
         className={styles.viewer}
       >

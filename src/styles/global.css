@@ -111,7 +111,7 @@ img {
 
 @media (max-width: 800px) {
   :root {
-    --header-h: 110px;
+    --header-h: 76px;
     /* Phones keep their own sizes whatever the screen height. */
     --shortfall: 0px;
   }
