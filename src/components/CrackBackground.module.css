@@ -1,0 +1,16 @@
+/* Fixed behind everything; the header is transparent and the panel opaque,
+   so it shows around the panel's edges and behind the name and nav. The soft
+   glow toward the top is the canvas's own background. */
+.canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 90% 70% at 50% 0%,
+    var(--bg-glow) 0%,
+    var(--bg-outer) 55%,
+    var(--bg-edge) 100%
+  );
+}

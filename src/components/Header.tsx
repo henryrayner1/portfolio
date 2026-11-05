@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { profile, type SectionId } from '../data/content'
+import { AVOID_ATTR } from './CrackBackground'
 import { NavBar } from './NavBar'
 import styles from './Header.module.css'
 
@@ -32,11 +33,12 @@ export function Header({ active, onNavigate }: Props) {
         {hasSignature && (
           <span
             aria-hidden
+            {...{ [AVOID_ATTR]: '' }}
             className={styles.signature}
             style={{ maskImage: `url(${profile.signature})` }}
           />
         )}
-        <span className={styles.name}>{profile.name}</span>
+        <span className={styles.name} {...{ [AVOID_ATTR]: '' }}>{profile.name}</span>
       </a>
       <NavBar active={active} onNavigate={onNavigate} />
     </header>

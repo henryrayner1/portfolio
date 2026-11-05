@@ -1,5 +1,8 @@
 :root {
   --bg-outer: #fde3d5;
+  --bg-glow: #fff1e9; /* background glow toward the top centre */
+  --bg-edge: #f6cfbc; /* background toward the window edges */
+  --crack: #e8c2ad; /* background cracks at rest */
   --bg-panel: #feeae0;
   --text: #111;
   --text-muted: #7a6a55;

@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { sections, type SectionId } from '../data/content'
+import { AVOID_ATTR } from './CrackBackground'
 import styles from './NavBar.module.css'
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 
 export function NavBar({ active, onNavigate }: Props) {
   return (
-    <nav className={styles.nav} aria-label="Sections">
+    <nav className={styles.nav} aria-label="Sections" {...{ [AVOID_ATTR]: '' }}>
       <span className={`${styles.line} ${styles.edge}`} />
       {sections.map(({ id, label }, i) => (
         <Fragment key={id}>
